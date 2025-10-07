@@ -1,0 +1,20 @@
+grid:
+  detector: [yolov10, rtdetrv2, vitdet]
+  tracker: [bytetrack, ocsort, strongsort]
+  reid: [off, on]
+  amodal_head: [off, on]
+  pno: [off, on]
+  alpha_decay: [0.92, 0.96]
+  gate_growth: [0.15, 0.25]
+  tmax_gap: [20, 45]
+  calibration: [off, on]
+shared:
+  weights:
+    yolov10: "{{PLACEHOLDER:YOLOV10_WEIGHTS_PATH}}"
+    rtdetrv2: "{{PLACEHOLDER:RTDETRV2_WEIGHTS_PATH}}"
+    vitdet: "{{PLACEHOLDER:VITDET_WEIGHTS_PATH}}"
+  data_roots:
+    tao: "{{PLACEHOLDER:TAO_DATASET_ROOT}}"
+    mot17: "{{PLACEHOLDER:MOT17_DATASET_ROOT}}"
+    detrac: "{{PLACEHOLDER:UA_DETRAC_ROOT}}"
+  calibration_table: "{{PLACEHOLDER:CALIBRATION_TABLE_PATH}}"

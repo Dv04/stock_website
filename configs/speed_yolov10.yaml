@@ -1,0 +1,33 @@
+defaults:
+  - /detector: yolov10_speed
+  - /tracker: bytetrack_speed
+
+detector:
+  name: yolov10
+  variant: n
+  weights: "{{PLACEHOLDER:YOLOV10_WEIGHTS_PATH}}"
+  device: cuda
+  confidence: 0.35
+tracker:
+  name: bytetrack
+  match_thresh: 0.85
+  track_thresh: 0.6
+  buffer_size: 30
+reid:
+  enabled: false
+amodal_head:
+  enabled: false
+data:
+  source: file
+  tao_root: "{{PLACEHOLDER:TAO_DATASET_ROOT}}"
+  mot17_root: "{{PLACEHOLDER:MOT17_DATASET_ROOT}}"
+  detrac_root: "{{PLACEHOLDER:UA_DETRAC_ROOT}}"
+video:
+  kind: file
+  path: "{{PLACEHOLDER:MOT17_VIDEO_PATH}}"
+permanence:
+  alpha_decay: 0.96
+  gate_growth: 0.15
+  tmax_gap: 20
+calibration:
+  enabled: false

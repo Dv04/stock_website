@@ -1,0 +1,37 @@
+detector:
+  name: yolov10
+  weights: "{{PLACEHOLDER:YOLOV10_WEIGHTS_PATH}}"
+  device: cuda
+  confidence: 0.25
+tracker:
+  name: bytetrack
+  match_thresh: 0.8
+  track_thresh: 0.5
+  buffer_size: 50
+reid:
+  enabled: false
+  backbone: osnet_x0_25
+  weights: "{{PLACEHOLDER:REID_WEIGHTS_PATH}}"
+  device: cuda
+amodal_head:
+  enabled: false
+  weights: "{{PLACEHOLDER:AMODAL_HEAD_WEIGHTS_PATH}}"
+data:
+  source: toy
+  tao_root: "{{PLACEHOLDER:TAO_DATASET_ROOT}}"
+  mot17_root: "{{PLACEHOLDER:MOT17_DATASET_ROOT}}"
+  detrac_root: "{{PLACEHOLDER:UA_DETRAC_ROOT}}"
+video:
+  kind: file
+  path: "{{PLACEHOLDER:MOT17_VIDEO_PATH}}"
+  rtsp_url: "{{PLACEHOLDER:RTSP_URL}}"
+  webcam_index: "{{PLACEHOLDER:WEBCAM_DEVICE_INDEX}}"
+permanence:
+  alpha_decay: 0.94
+  gate_growth: 0.2
+  tmax_gap: 30
+calibration:
+  enabled: false
+  table_path: "{{PLACEHOLDER:CALIBRATION_TABLE_PATH}}"
+trackeval:
+  root: "{{PLACEHOLDER:TRACK_EVAL_ROOT}}"

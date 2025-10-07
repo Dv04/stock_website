@@ -1,0 +1,18 @@
+defaults:
+  - default
+
+reid:
+  enabled: true
+  backbone: osnet_x0_25
+  weights: "{{PLACEHOLDER:REID_WEIGHTS_PATH}}"
+  device: cuda
+
+tracker:
+  name: strongsort
+  match_thresh: 0.8
+  track_thresh: 0.5
+  buffer_size: 50
+
+reid_thresholds:
+  appearance_cosine: 0.35
+  temporal_decay: 0.9
